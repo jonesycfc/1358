@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://egaq7xd35yds"]
+
+[ext_resource type="Script" uid="uid://i0u16vqpwqp1" path="res://BallScript.gd" id="1_lj3vc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0ok2w"]
+radius = 0.12
+
+[sub_resource type="SphereMesh" id="SphereMesh_0ok2w"]
+radius = 0.12
+height = 0.24
+
+[node name="V-Ball" type="RigidBody3D" unique_id=229007060]
+script = ExtResource("1_lj3vc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1230956372]
+shape = SubResource("SphereShape3D_0ok2w")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=832812356]
+mesh = SubResource("SphereMesh_0ok2w")
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1141982238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.36741185)

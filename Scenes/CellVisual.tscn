@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b1rxmer68ycnx"]
+
+[ext_resource type="Script" uid="uid://clqnvlb6r2d8o" path="res://Floor/Grid/CellVisual.gd" id="1_5c1mt"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0ok2w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5c1mt"]
+albedo_color = Color(0, 0.47816086, 0.14306751, 1)
+
+[node name="CellVisual" type="Node3D" unique_id=485362347]
+script = ExtResource("1_5c1mt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1433454389]
+mesh = SubResource("QuadMesh_0ok2w")
+surface_material_override/0 = SubResource("StandardMaterial3D_5c1mt")

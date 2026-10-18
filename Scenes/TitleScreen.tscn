@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://5q437uajs8qo"]
+
+[ext_resource type="Script" uid="uid://b527ym1wfcw6k" path="res://Scenes/TitleScreen.gd" id="1_uebgo"]
+
+[node name="TitleScreen" type="Control" unique_id=1123870180]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uebgo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1654598055]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.83502
+offset_top = -46.01999
+offset_right = 311.83502
+offset_bottom = 46.01999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 133
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=2026176111]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomeTeamText" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1846070785]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Home"
+horizontal_alignment = 1
+
+[node name="HomeTeamButton" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=347212005]
+layout_mode = 2
+size_flags_vertical = 3
+text = "P1"
+
+[node name="StartButton" type="Button" parent="HBoxContainer" unique_id=1503955177]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=522170253]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AwayTeamText" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=135768771]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Away"
+horizontal_alignment = 1
+
+[node name="AwayTeamButton" type="Button" parent="HBoxContainer/VBoxContainer2" unique_id=1683988855]
+layout_mode = 2
+size_flags_vertical = 3
+text = "CPU"
+
+[node name="Label" type="Label" parent="." unique_id=1829750348]
+layout_mode = 0
+offset_left = 176.085
+offset_right = 224.08504
+offset_bottom = 23.0
+text = "Chuck"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1155784272]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.045044
+offset_top = -25.83252
+offset_right = 53.045044
+offset_bottom = 25.83252
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HomeTeamButton" to="." method="_on_home_team_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/AwayTeamButton" to="." method="_on_away_team_button_pressed"]

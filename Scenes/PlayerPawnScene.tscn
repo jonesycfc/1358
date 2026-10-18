@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://17ye2w0fy8ay"]
+
+[ext_resource type="Script" uid="uid://2glbnj54noeb" path="res://Pawns/PawnClass.gd" id="1_3qn7i"]
+[ext_resource type="PackedScene" uid="uid://bj5yxcpq5x06y" path="res://Scenes/PawnAnimationScene.tscn" id="2_tb7yp"]
+[ext_resource type="Script" uid="uid://dnvo5hq8exv1n" path="res://Scenes/ShortSpike.gd" id="3_hjtyx"]
+[ext_resource type="Script" uid="uid://cr8b252cwnb7l" path="res://Pawns/AnimationLocomotion.gd" id="3_tb7yp"]
+[ext_resource type="Script" uid="uid://bpn7o2vi6wqta" path="res://Scenes/Pawn/animation_nodes.gd" id="3_tqqnh"]
+[ext_resource type="Script" uid="uid://dskj2f1o60iky" path="res://Scenes/Pawn/AnimationActions.gd" id="4_hjtyx"]
+[ext_resource type="Script" uid="uid://bbgvlxnlwvrak" path="res://Scenes/Pawn/JumpAction.gd" id="6_hjtyx"]
+[ext_resource type="Script" uid="uid://btupb28k1hn16" path="res://Scenes/Pawn/ActionDelegator.gd" id="8_20gyv"]
+[ext_resource type="Script" uid="uid://c3ofx3xk802d2" path="res://Scenes/Pawn/ik_test.gd" id="8_aop6t"]
+[ext_resource type="Script" uid="uid://ym40fub80ge2" path="res://Scenes/Pawn/PawnMovement.gd" id="9_ora0a"]
+[ext_resource type="Script" uid="uid://cvnyuljqjr3yy" path="res://Scenes/Pawn/BallActions.gd" id="10_rqsfn"]
+[ext_resource type="Script" uid="uid://dq3o68q1ac8oc" path="res://Scenes/PawnSensing.gd" id="11_uj281"]
+[ext_resource type="Script" uid="uid://yew6yohkwm74" path="res://Scenes/Pawn/HitActionBase.gd" id="12_5h1s1"]
+[ext_resource type="Script" uid="uid://di6vcw526loi0" path="res://Scenes/PawnSprites.gd" id="12_ggv7a"]
+[ext_resource type="Texture2D" uid="uid://cr4f4r50yy1yu" path="res://Images/sprrrt22.png" id="12_x4ajm"]
+[ext_resource type="Script" uid="uid://bb4a8d8qftx2o" path="res://Scenes/Pawn/PawnOrientation.gd" id="14_p5lad"]
+[ext_resource type="Script" uid="uid://dyc6ro5kw6v78" path="res://Scenes/Pawn/HitSelection.gd" id="15_thaur"]
+[ext_resource type="Script" uid="uid://nb6i117fa2y7" path="res://Scenes/Pawn/PawnChoices.gd" id="16_pf1ct"]
+[ext_resource type="Script" uid="uid://dceasiqr8dgme" path="res://Scenes/Pawn/ReceiveAction.gd" id="17_recvscript"]
+[ext_resource type="Resource" uid="uid://cx86wdec1bo60" path="res://Scenes/Pawn/Resources/ReceiveHitDefinition.tres" id="18_recvdef"]
+[ext_resource type="Resource" path="res://Scenes/Pawn/Resources/SpikeHitDefinition.tres" id="19_spikedef"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h34gw"]
+radius = 1.0
+height = 2.849
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ok2w"]
+radius = 0.15
+height = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_0ok2w"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2uhd"]
+albedo_color = Color(0.29803923, 1, 1, 1)
+
+[node name="PawnClass" type="CharacterBody3D" unique_id=869442234]
+script = ExtResource("1_3qn7i")
+
+[node name="PawnAnimationScene" parent="." unique_id=507156761 instance=ExtResource("2_tb7yp")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=474475008]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=183933440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8805301, 0)
+shape = SubResource("CapsuleShape3D_h34gw")
+
+[node name="BlockingCollision" type="CollisionShape3D" parent="." unique_id=1533917118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24274474, 0)
+shape = SubResource("CapsuleShape3D_0ok2w")
+
+[node name="GroundRayCast" type="RayCast3D" parent="." unique_id=691346720]
+
+[node name="AnimationFlow" type="Node" parent="." unique_id=961212574]
+script = ExtResource("3_tqqnh")
+
+[node name="AnimationLocomotion" type="Node" parent="AnimationFlow" unique_id=1815278784]
+script = ExtResource("3_tb7yp")
+
+[node name="AnimationActions" type="Node" parent="AnimationFlow" unique_id=1477094039]
+script = ExtResource("4_hjtyx")
+
+[node name="JumpAction" type="Node" parent="AnimationFlow" unique_id=345594923]
+script = ExtResource("6_hjtyx")
+_jump_velocity = 10.0
+
+[node name="IK_Test" type="Node" parent="AnimationFlow" unique_id=1509645610]
+script = ExtResource("8_aop6t")
+
+[node name="ActionDelegator" type="Node" parent="." unique_id=1510237535]
+script = ExtResource("8_20gyv")
+
+[node name="PawnMovement" type="Node" parent="ActionDelegator" unique_id=1097922762]
+script = ExtResource("9_ora0a")
+
+[node name="PawnOrientation" type="Node" parent="ActionDelegator" unique_id=1081618526]
+script = ExtResource("14_p5lad")
+
+[node name="BallActions" type="Node" parent="ActionDelegator" unique_id=376430533]
+script = ExtResource("10_rqsfn")
+
+[node name="HitActionBase" type="Node" parent="ActionDelegator/BallActions" unique_id=255504170]
+script = ExtResource("12_5h1s1")
+definition = ExtResource("19_spikedef")
+
+[node name="SpikeAction" type="Node" parent="ActionDelegator/BallActions/HitActionBase" unique_id=703414370]
+script = ExtResource("3_hjtyx")
+definition = ExtResource("19_spikedef")
+
+[node name="ReceiveAction" type="Node" parent="ActionDelegator/BallActions/HitActionBase" unique_id=1763980336]
+script = ExtResource("17_recvscript")
+definition = ExtResource("18_recvdef")
+
+[node name="Sprites" type="Node" parent="ActionDelegator" unique_id=1608825873]
+script = ExtResource("12_ggv7a")
+
+[node name="ImpactSprite" type="Sprite3D" parent="ActionDelegator/Sprites" unique_id=263420653]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+visible = false
+texture = ExtResource("12_x4ajm")
+
+[node name="PawnChoices" type="Node" parent="ActionDelegator" unique_id=727814054]
+script = ExtResource("16_pf1ct")
+
+[node name="HitSelection" type="Node" parent="ActionDelegator/PawnChoices" unique_id=1919323499]
+script = ExtResource("15_thaur")
+
+[node name="PawnSensing" type="Node" parent="." unique_id=2024584075]
+script = ExtResource("11_uj281")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2036957902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7499542, 0)
+visible = false
+mesh = SubResource("BoxMesh_0ok2w")
+surface_material_override/0 = SubResource("StandardMaterial3D_f2uhd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

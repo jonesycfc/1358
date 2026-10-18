@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HitActionDefinition" format=3 uid="uid://cx86wdec1bo60"]
+
+[ext_resource type="Script" uid="uid://d3aumslonq8im" path="res://Scenes/Pawn/HitActionDefinition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Low Receive / Dig"
+animation_name = &"Passes1/DigStyle1"
+contact_offset = Vector3(0, 0.75, -0.35)
+jump_velocity = 0.0
+contact_distance = 1.5
+target_policy = 1
+minimum_flight_time = 0.8
+maximum_flight_time = 1.35

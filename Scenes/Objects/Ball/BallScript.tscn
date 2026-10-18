@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dftrl2whsda8r"]
+
+[ext_resource type="Script" uid="uid://cbuvmov1mjswp" path="res://Scenes/Objects/Ball/BallScriptAnima.gd" id="1_4v76k"]
+[ext_resource type="Script" uid="uid://b3d1wgu44v8uc" path="res://Scenes/Objects/Ball/BallContact.gd" id="2_s7kov"]
+[ext_resource type="Script" uid="uid://bx0dnxxqm3rvs" path="res://Scenes/Objects/Ball/BallProperties.gd" id="3_e3l87"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4v76k"]
+friction = 0.12
+bounce = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0ms6"]
+albedo_color = Color(0.35419908, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2bcom"]
+material = SubResource("StandardMaterial3D_w0ms6")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_viqqp"]
+radius = 0.1
+
+[node name="BallScriptAnima" type="RigidBody3D" unique_id=20953200]
+physics_material_override = SubResource("PhysicsMaterial_4v76k")
+script = ExtResource("1_4v76k")
+size = Vector3(0.2, 0.2, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=76005384]
+mesh = SubResource("SphereMesh_2bcom")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1956916357]
+shape = SubResource("SphereShape3D_viqqp")
+metadata/_edit_lock_ = true
+
+[node name="Contact" type="Node" parent="." unique_id=2021558590]
+script = ExtResource("2_s7kov")
+
+[node name="Properties" type="Node" parent="." unique_id=2090020998]
+script = ExtResource("3_e3l87")

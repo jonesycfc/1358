@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="HitActionDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scenes/Pawn/HitActionDefinition.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Jump Spike"
+kind = 2
+animation_name = &"SpikeTesting1/WeakSpikeFull"
+animation_fps = 60.0
+contact_frame = 56
+contact_offset = Vector3(-0.126932, 1.678935, 0.159825)
+requires_jump = true
+takeoff_frame = 32
+jump_velocity = 10.0
+contact_distance = 1.0
+max_vertical_speed = 25.0
+target_policy = 3
+target_height = 0.25
+minimum_flight_time = 0.42
+maximum_flight_time = 0.85
+preferred_flight_time = 0.65
+power_multiplier = 1.0

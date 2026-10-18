@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://oko2o4myxqrn"]
+
+[ext_resource type="Script" uid="uid://baf8gwrkf05dg" path="res://Scenes/MatchScene.gd" id="1_5mvi0"]
+[ext_resource type="Script" uid="uid://bfh4xxek0rvqm" path="res://Floor/Grid/GridCreated.gd" id="2_koww1"]
+[ext_resource type="Script" uid="uid://bo6laf6o5u5e" path="res://Floor/Grid/GridRenderer.gd" id="3_koww1"]
+[ext_resource type="Script" uid="uid://1bhqtnm8fg81" path="res://Pawns/PawnPositioningManager.gd" id="5_dxd8c"]
+[ext_resource type="Script" uid="uid://0ai2ydvxhp6y" path="res://Cam/CamScript.gd" id="5_koww1"]
+[ext_resource type="Script" uid="uid://c6no5el2bwdak" path="res://Scenes/BallSpawn.gd" id="6_dxd8c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ok2w"]
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2uhd"]
+albedo_color = Color(0.69, 0.566375, 0.3933, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0ok2w"]
+material = SubResource("StandardMaterial3D_f2uhd")
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2uhd"]
+size = Vector3(0.2, 0.7, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcngy"]
+albedo_color = Color(1, 0.8466836, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f2uhd"]
+material = SubResource("StandardMaterial3D_jcngy")
+size = Vector3(0.2, 0.7, 10)
+
+[node name="MatchScene" type="Node3D" unique_id=1392135725]
+script = ExtResource("1_5mvi0")
+
+[node name="GroundMain" type="StaticBody3D" parent="." unique_id=648673541]
+script = ExtResource("2_koww1")
+
+[node name="GridRenderer" type="Node3D" parent="GroundMain" unique_id=856353800]
+script = ExtResource("3_koww1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundMain" unique_id=1723868346]
+shape = SubResource("BoxShape3D_0ok2w")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GroundMain" unique_id=1691073288]
+mesh = SubResource("BoxMesh_0ok2w")
+metadata/_edit_lock_ = true
+
+[node name="MainCamera" type="Camera3D" parent="." unique_id=1228961731]
+transform = Transform3D(0.8910065, 0.22355565, -0.39513323, 0, 0.8703556, 0.4924236, 0.45399055, -0.43875262, 0.77549255, -7.34, 7.585, 12.435)
+current = true
+fov = 40.0
+script = ExtResource("5_koww1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1700699689]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 18.530327, 0)
+
+[node name="Net" type="StaticBody3D" parent="." unique_id=949227699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0466645, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Net" unique_id=1864785120]
+shape = SubResource("BoxShape3D_f2uhd")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Net" unique_id=108997986]
+mesh = SubResource("BoxMesh_f2uhd")
+metadata/_edit_lock_ = true
+
+[node name="Spawner" type="Node3D" parent="." unique_id=733795035]
+
+[node name="Characters" type="Node3D" parent="Spawner" unique_id=1203949513]
+script = ExtResource("5_dxd8c")
+
+[node name="Ball" type="Node3D" parent="Spawner" unique_id=1808787753]
+script = ExtResource("6_dxd8c")

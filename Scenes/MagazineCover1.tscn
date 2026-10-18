@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dc88qdf2owybs"]
+
+[ext_resource type="Texture2D" uid="uid://co2crknu7m05" path="res://wilkersonparedessss324.png" id="1_jra2a"]
+[ext_resource type="Texture2D" uid="uid://bjfot7a4axnhk" path="res://BCODEE23.jpg" id="2_p0pc1"]
+
+[sub_resource type="Theme" id="Theme_f2uhd"]
+
+[node name="Control2" type="Control" unique_id=1449647214]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -300.0
+offset_right = 200.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=779539775]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -302.0
+offset_right = 201.0
+offset_bottom = 448.12268
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jra2a")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=37601507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_f2uhd")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=261802266]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 523.0
+offset_right = 95.160225
+offset_bottom = 589.0
+texture = ExtResource("2_p0pc1")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=2050284943]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control" unique_id=984931799]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -36.0
+offset_right = 140.0
+offset_bottom = 29.0
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font_size=12]Fruit Punchers ace their way to the finals![/font_size]"
+
+[node name="Title" type="RichTextLabel" parent="Control" unique_id=1616144845]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 77.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[color=Pink][font_size=52]Peachy[/font_size][/color] [color=Orange] [font_size=42]Slammers[/font_size][/color]"
+
+[node name="SubTitle" type="RichTextLabel" parent="Control" unique_id=1853879147]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 225.0
+offset_top = 62.0
+offset_right = 225.0
+offset_bottom = 149.99994
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[color=white]THE[/color] [color=#e63946]FUTURE[/color] [color=white]IS HERE[/color]"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1741105628]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 198.0
+offset_right = 155.0
+offset_bottom = 271.0
+bbcode_enabled = true
+text = "[font_size=22][color=red]STRAWBERRY SMASH!"
+horizontal_alignment = 1
